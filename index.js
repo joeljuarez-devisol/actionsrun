@@ -50,6 +50,8 @@ try {
         console.log(`Version Name : ${versionCode}`);
 
         fs.readFile(gradlePath, 'utf8', function (err, data) {
+            if(!data) return
+            
             newGradle = data;
             if (versionCode.length > 0)
                 newGradle = newGradle.replace(versionCodeRegexPattern, `$1${versionCode}`);
