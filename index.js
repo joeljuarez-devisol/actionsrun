@@ -13,6 +13,9 @@ try {
         const gradlePath = core.getInput('gradlePath');
         const versionName = core.getInput('versionNumber');
         let versionParts = versionName.split('.');
+        
+        console.log(`GradlePath :::: ${gradlePath}`);
+          console.log(`VersionName :::: ${versionName}`);
 
         let finalNewVersion = '';
         let newVersionParts = versionParts[versionParts.length -1];
