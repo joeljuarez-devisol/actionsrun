@@ -59,8 +59,10 @@ try {
                 if (err) throw err;
                 if (versionCode.length > 0)
                     console.log(`Successfully override version code ${versionCode}`)
+                    console.log(`Version Name JJA : ${versionCode}`);
                 if (versionName.length > 0)
                     console.log(`Successfully override version code ${versionName}`)
+                console.log(`Version Name JJA : ${versionName}`);
                 core.setOutput("result", `Done`);
             });
         });
