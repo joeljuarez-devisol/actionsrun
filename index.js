@@ -11,7 +11,7 @@ try {
     const platform = core.getInput('platform');
     if (platform === 'android') {
         const gradlePath = core.getInput('gradlePath');
-        const versionName = core.getInput('versionName');
+        const versionName = core.getInput('versionNumber');
         let versionParts = versionName.split('.');
 
         let finalNewVersion = '';
