@@ -50,7 +50,11 @@ try {
         console.log(`Version Name : ${versionCode}`);
 
         fs.readFile(gradlePath, 'utf8', function (err, data) {
-            if(!data) return
+            if(!data) {
+                 console.log(`data is Empty ${data}`);
+                console.log(`Error : ... ${err}`);
+            return
+            }
             
             newGradle = data;
             if (versionCode.length > 0)
