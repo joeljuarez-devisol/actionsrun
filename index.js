@@ -40,7 +40,7 @@ try {
         let versionFinalParts = finalNewVersion.split('.');
         versionFinalParts.forEach(element => {
             let newPart = element;
-            if(part.length === 1) {
+            if(element.length === 1) {
                 newPart = `${element}0`;
             }
             versionCode = `${versionCode}${newPart}`;
