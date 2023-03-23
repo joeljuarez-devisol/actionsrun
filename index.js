@@ -26,7 +26,7 @@ try {
         console.log(`newVersionParts :::: ${newVersionParts}`);
          console.log(`newVersionParts.length :::: ${newVersionParts.length}`);
         if(newVersionParts.length > 0) {
-            lastPartMayor = parseString(versionParts[0]);
+            lastPartMayor = parseInt(versionParts[0].substring(1));
             lastPartMinor = parseInt(versionParts[1]);
             lastPartVersion = parseInt(versionParts[2]) + 1;
             console.log(`lastPartMayor ->  ${lastPartMayor}`);
@@ -37,8 +37,7 @@ try {
                 lastPartMinor = lastPartMinor + 1;
                 if(lastPartMinor > 99) {
                     lastPartMinor = 0;
-                    let valueMayor = lastPartMayor.substring(1)
-                    lastPartMayor = valueMayor + 1;
+                    lastPartMayor = lastPartMayor + 1;
                 }
             }
             finalNewVersion = `${lastPartMayor}.${lastPartMinor}.${lastPartVersion}`;
