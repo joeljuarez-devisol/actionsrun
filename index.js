@@ -43,6 +43,8 @@ try {
 
         let versionCode = '';
         let versionFinalParts = finalNewVersion.split('.');
+        console.log(`versionFinalParts -> ${versionFinalParts}`);
+        
         versionFinalParts.forEach(element => {
             let newPart = element;
             if(element.length === 1) {
