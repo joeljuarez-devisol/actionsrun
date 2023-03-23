@@ -45,7 +45,7 @@ try {
 
         let versionCode = '';
         let versionFinalParts = finalNewVersion.split('.');
-        console.log(`versionFinalParts -> ${versionFinalParts}`);
+       // console.log(`versionFinalParts -> ${versionFinalParts}`);
         
         versionFinalParts.forEach(element => {
             let newPart = element;
@@ -65,7 +65,7 @@ try {
             }else{
                 let file_content = data.toString('utf8')
                     // your code here
-                console.log(`data values -> : ... ${file_content}`);
+               // console.log(`data values -> : ... ${file_content}`);
              }
             if(!data) {
                  console.log(`data is Empty ${data}`);
