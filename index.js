@@ -79,6 +79,7 @@ try {
             if (versionName.length > 0){
                 newGradle = newGradle.replace(versionNameRegexPattern, `$1\"${finalNewVersion}\"`);
                 console.log(`finalNewVersion: ${finalNewVersion}`);
+                core.setOutput( "new-version-number",`v$1\"${finalNewVersion}\"`);
             }
                 
             fs.writeFile(gradlePath, newGradle, function (err) {
@@ -86,7 +87,6 @@ try {
                 if (versionCode.length > 0) {
                      console.log(`Successfully override versionCode ${versionCode}`)
                      console.log(`Version Name JJA : ${versionCode}`);
-                    core.setOutput( "new-version-number", ${versionCode});
                 }
                    
              
