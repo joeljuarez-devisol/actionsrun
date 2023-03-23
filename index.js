@@ -62,16 +62,24 @@ try {
             newGradle = data;
             if (versionCode.length > 0)
                 newGradle = newGradle.replace(versionCodeRegexPattern, `$1${versionCode}`);
-            if (versionName.length > 0)
+            if (versionName.length > 0){
                 newGradle = newGradle.replace(versionNameRegexPattern, `$1\"${finalNewVersion}\"`);
+                console.log(`finalNewVersion: ${finalNewVersion}`);
+            }
+                
             fs.writeFile(gradlePath, newGradle, function (err) {
                 if (err) throw err;
-                if (versionCode.length > 0)
-                    console.log(`Successfully override version code ${versionCode}`)
-                    console.log(`Version Name JJA : ${versionCode}`);
-                if (versionName.length > 0)
-                    console.log(`Successfully override version code ${versionName}`)
-                console.log(`Version Name JJA : ${versionName}`);
+                if (versionCode.length > 0) {
+                     console.log(`Successfully override versionCode ${versionCode}`)
+                     console.log(`Version Name JJA : ${versionCode}`);
+                }
+                   
+             
+                if (versionName.length > 0){
+                    console.log(`Successfully override versionName ${versionName}`)
+                    console.log(`Version Name JJA : ${versionName}`);
+                }
+              
                 core.setOutput("result", `Done`);
             });
         });
