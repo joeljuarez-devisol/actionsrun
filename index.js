@@ -79,7 +79,7 @@ try {
             if (versionName.length > 0){
                 newGradle = newGradle.replace(versionNameRegexPattern, `$1\"${finalNewVersion}\"`);
                 console.log(`finalNewVersion: ${finalNewVersion}`);
-                core.setOutput( "new-version-number",`v\"${finalNewVersion}\"`);
+                core.setOutput( "new-version-number",`v${finalNewVersion}`);
             }
                 
             fs.writeFile(gradlePath, newGradle, function (err) {
