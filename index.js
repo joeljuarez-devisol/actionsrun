@@ -25,7 +25,7 @@ try {
         let lastPartVersion = 0;
         console.log(`newVersionParts :::: ${newVersionParts}`);
          console.log(`newVersionParts.length :::: ${newVersionParts.length}`);
-        if(newVersionParts.length > 2) {
+        if(newVersionParts.length > 0) {
             lastPartMayor = parseInt(versionParts[0]);
             lastPartMinor = parseInt(versionParts[1]);
             lastPartVersion = parseInt(versionParts[2]) + 1;
