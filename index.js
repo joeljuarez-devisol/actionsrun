@@ -93,7 +93,7 @@ try {
                     console.log(`Successfully override versionName ${versionName}`)
                     console.log(`Version Name JJA : ${versionName}`);
                 }
-                core.setOutput( "new-version-number",1.1.1);
+                core.setOutput( "new-version-number","1.1.1");
                 core.setOutput("result", `Done`);
             });
         });
