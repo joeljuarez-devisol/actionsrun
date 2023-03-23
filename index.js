@@ -23,6 +23,8 @@ try {
         let lastPartMayor = 1;
         let lastPartMinor = 0;
         let lastPartVersion = 0;
+        console.log(`newVersionParts :::: ${newVersionParts}`);
+         console.log(`newVersionParts.length :::: ${newVersionParts.length}`);
         if(newVersionParts.length > 2) {
             lastPartMayor = parseInt(versionParts[0]);
             lastPartMinor = parseInt(versionParts[1]);
