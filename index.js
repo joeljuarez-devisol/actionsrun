@@ -50,14 +50,7 @@ try {
         });
 
         fs.readFile(gradlePath, 'utf8', function (err, data) {
-            if(err){
-                console.log(err)
-                throw err
-            }else{
-                let file_content = data.toString('utf8')
-                    // your code here
-               // console.log(`data values -> : ... ${file_content}`);
-             }
+         
             if(!data) {
                  console.log(`data is Empty ${data}`);
                 console.log(`Error : ... ${err}`);
