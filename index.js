@@ -10,28 +10,23 @@ const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 try {
     const platform = core.getInput('platform');
     if (platform === 'android') {
+        // path del gradle
         const gradlePath = core.getInput('gradlePath');
+        //version actual
         const versionName = core.getInput('versionNumber');
         let versionParts = versionName.split('.');
-        
-        console.log(`GradlePath :::: ${gradlePath}`);
-          console.log(`VersionName :::: ${versionName}`);
-
         let finalNewVersion = '';
         let newVersionParts = versionParts[versionParts.length -1];
 
         let lastPartMayor = 1;
         let lastPartMinor = 0;
         let lastPartVersion = 0;
-        console.log(`newVersionParts :::: ${newVersionParts}`);
-         console.log(`newVersionParts.length :::: ${newVersionParts.length}`);
+        
         if(newVersionParts.length > 0) {
             lastPartMayor = parseInt(versionParts[0].substring(1));
             lastPartMinor = parseInt(versionParts[1]);
             lastPartVersion = parseInt(versionParts[2]) + 1;
-            console.log(`lastPartMayor ->  ${lastPartMayor}`);
-            console.log(`lastPartMinor ->  ${lastPartMinor}`);
-            
+          
             if(lastPartVersion > 99) {
                 lastPartVersion = 0;
                 lastPartMinor = lastPartMinor + 1;
@@ -45,7 +40,6 @@ try {
 
         let versionCode = '';
         let versionFinalParts = finalNewVersion.split('.');
-       // console.log(`versionFinalParts -> ${versionFinalParts}`);
         
         versionFinalParts.forEach(element => {
             let newPart = element;
@@ -54,9 +48,6 @@ try {
             }
             versionCode = `${versionCode}${newPart}`;
         });
-
-        console.log(`Gradle Path : ${finalNewVersion}`);
-        console.log(`Version Name : ${versionCode}`);
 
         fs.readFile(gradlePath, 'utf8', function (err, data) {
             if(err){
@@ -86,13 +77,13 @@ try {
                 if (err) throw err;
                 if (versionCode.length > 0) {
                      console.log(`Successfully override versionCode ${versionCode}`)
-                     console.log(`Version Name JJA : ${versionCode}`);
+                     console.log(`Version Name : ${versionCode}`);
                 }
                    
              
                 if (versionName.length > 0){
                     console.log(`Successfully override versionName ${versionName}`)
-                    console.log(`Version Name JJA : ${versionName}`);
+                    console.log(`Version Name : ${versionName}`);
                 }
                 
                 core.setOutput("result", `Done`);
