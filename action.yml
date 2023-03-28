@@ -17,7 +17,6 @@ inputs:
     description: 'Commit message '
     required: true
     default: 'message'
-    commitMessage
 outputs:
   new-version-number: # id of output
     description: 'The new version number' 
