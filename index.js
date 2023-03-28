@@ -14,6 +14,11 @@ try {
         const gradlePath = core.getInput('gradlePath');
         //version actual
         const versionName = core.getInput('versionNumber');
+        //commit message
+        const commitMessage = core.getInput('commitMessage');
+        
+        console.log(`commitMessage -->  ${commitMessage}` <---);
+        
         let versionParts = versionName.split('.');
         let finalNewVersion = '';
         let newVersionParts = versionParts[versionParts.length -1];
