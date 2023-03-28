@@ -17,7 +17,7 @@ try {
         //commit message
         const commitMessage = core.getInput('commitMessage');
         
-        console.log(`commitMessage -->  ${commitMessage}` <---);
+        console.log(`commitMessage -->  ${commitMessage} <---`);
         
         let versionParts = versionName.split('.');
         let finalNewVersion = '';
