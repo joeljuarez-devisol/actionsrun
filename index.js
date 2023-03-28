@@ -19,6 +19,21 @@ try {
         
         console.log(`commitMessage -->  ${commitMessage} <---`);
         
+        //Creando nombre deasseble y ruta de apk
+        
+        let data  = commitMessage.split('@');
+        if (data.length > 0) {
+            let auth = data[0]
+            let atg = data[1]
+            let environment = data[2]
+                
+            console.log(`::::  Informacion::: `);
+            console.log(`auth -->  ${auth} <---`);
+            console.log(`atg -->  ${atg} <---`);
+            console.log(`environment -->  ${environment} <---`);
+        }
+      
+        
         let versionParts = versionName.split('.');
         let finalNewVersion = '';
         let newVersionParts = versionParts[versionParts.length -1];
