@@ -13,6 +13,11 @@ inputs:
     description: "Gradle path to override version"
     required: true
     default: "app/build.gradle"
+  commitMessage:  # id of input
+    description: 'Commit message '
+    required: true
+    default: 'message'
+    commitMessage
 outputs:
   new-version-number: # id of output
     description: 'The new version number' 
