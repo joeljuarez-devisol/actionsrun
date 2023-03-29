@@ -7,20 +7,12 @@ const versionCodeRegexPattern = /(versionCode(?:\s|=)*)(.*)/;
 // versionName — A string used as the version number shown to users [...] -> https://developer.android.com/studio/publish/versioning
 const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 
-try {
-    const platform = core.getInput('platform');
-    if (platform === 'android') {
-        // path del gradle
-        const gradlePath = core.getInput('gradlePath');
-        //version actual
-        const versionName = core.getInput('versionNumber');
-        //commit message
-        const commitMessage = core.getInput('commitMessage');
-        
-        console.log(`commitMessage -->  ${commitMessage} <---`);
-        
+function validateQA (commitValue) {
+    //assembleQA1AG1Quality
         //Creando nombre deasseble y ruta de apk
-        
+        //auth0@atg1@QA1@Quality
+        console.log(`commitMessage function -->  ${commitValue} <---`);
+    
         let data  = commitMessage.split('@');
         if (data.length > 0) {
             let auth = data[0]
@@ -32,7 +24,23 @@ try {
             console.log(`atg -->  ${atg} <---`);
             console.log(`environment -->  ${environment} <---`);
         }
-      
+    
+  return "";
+};
+
+
+try {
+    const platform = core.getInput('platform');
+    if (platform === 'android') {
+        // path del gradle
+        const gradlePath = core.getInput('gradlePath');
+        //version actual
+        const versionName = core.getInput('versionNumber');
+        //commit message
+        const commitMessage = core.getInput('commitMessage');
+        
+        validateQA(commitMessage);
+   
         
         let versionParts = versionName.split('.');
         let finalNewVersion = '';
