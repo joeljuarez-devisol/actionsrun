@@ -13,7 +13,7 @@ function validateQA (commitValue) {
         //auth0@atg1@QA1@Quality
         console.log(`commitMessage function -->  ${commitValue} <---`);
     
-        let data  = commitMessage.split('@');
+        let data  = commitValue.split('@');
         if (data.length > 0) {
             let auth = data[0]
             let atg = data[1]
