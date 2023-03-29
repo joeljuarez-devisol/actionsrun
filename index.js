@@ -63,6 +63,7 @@ function validateQA (commitValue) {
             finalPath += ".apk"
             
             console.log(`finalPath ---> ${finalPath} <---`); 
+            core.setOutput( "finalPath_apk",`v${finalPath}`);
             
         }
     
