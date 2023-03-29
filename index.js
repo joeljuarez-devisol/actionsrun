@@ -24,30 +24,46 @@ function validateQA (commitValue) {
             let buildVariant = data[3]
             let assemble = "assemble"
             
-            if (auth == "auth0") {
-                    //assembleQA1AG1Quality
-            }
+        
             if (environment == "QA1") {
                 assemble += environment
             } else if (environment == "QA2") {
                  assemble.concat('', environment)
             }
             
-            if (atg == "atg1") {
+            if (atg == "AG1") {
                 assemble += atg
-            } else if (atg == "atg2"){
+            } else if (atg == "AG2"){
                  assemble += atg
-                //assembleQA1AG1Quality
             }
+            
             assemble += buildVariant
             
             console.log(`assembleValue ---> ${assemble} <---`); 
+            
+            core.setOutput( "assemble_value",`v${assemble}`);
             
             console.log(`::::  Informacion::: `);
             console.log(`auth -->  ${auth} <---`);
             console.log(`atg -->  ${atg} <---`);
             console.log(`environment -->  ${environment} <---`);
             console.log(`buildVariant -->  ${buildVariant} <---`);
+            
+           // Creando path QA1AG1/quality/app-QA1-AG1-quality.apk
+            let finalPath = ""
+            finalPath += environment
+            finalPath += atg
+            finalPath += "/"
+            finalPath += buildVariant
+            finalPath += "/"
+            finalPath += "app-"
+            finalPath += environment + "-"
+            finalPath += atg
+            finalPath += buildVariant
+            finalPath += ".apk"
+            
+            console.log(`finalPath ---> ${finalPath} <---`); 
+            
         }
     
   return "";
