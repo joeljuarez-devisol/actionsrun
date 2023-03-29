@@ -16,10 +16,15 @@ inputs:
   commitMessage:  # id of input
     description: 'Commit message '
     required: true
-    default: 'message'
+    default: 'message'       
 outputs:
   new-version-number: # id of output
     description: 'The new version number' 
+  assemble_value: # id of output
+    description: 'value for assemble'
+  final_path_apk: # id of output
+    description: 'final path apk'
+    
 runs:
   using: 'node16'
   main: 'index.js'
