@@ -41,7 +41,7 @@ function validateQA (commitValue) {
             
             console.log(`assembleValue ---> ${assemble} <---`); 
             
-            core.setOutput( "assemble_value",`v${assemble}`);
+            core.setOutput( "assemble_value",`${assemble}`);
             
             console.log(`::::  Informacion::: `);
             console.log(`auth -->  ${auth} <---`);
