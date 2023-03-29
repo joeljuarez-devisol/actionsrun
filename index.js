@@ -10,7 +10,10 @@ const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 function validateQA (commitValue) {
     //assembleQA1AG1Quality
         //Creando nombre deasseble y ruta de apk
-        //auth0@atg1@QA1@Quality
+        // auth0 0
+        // @atg1 1
+        // @QA1 2
+        // @Quality 3
         console.log(`commitMessage function -->  ${commitValue} <---`);
     
         let data  = commitValue.split('@');
@@ -18,11 +21,34 @@ function validateQA (commitValue) {
             let auth = data[0]
             let atg = data[1]
             let environment = data[2]
-                
+            let buildVariant = data[3]
+            var assemble = "assemble"
+            
+            if (auth == "auth0") {
+                    //assembleQA1AG1Quality
+            }
+            if (environment == "QA1") {
+                assemble.concat('', environment)
+            } else if (environment == "QA2") {
+                 assemble.concat('', environment)
+            }
+            
+            if (atg == "atg1") {
+                assemble.concat('', atg)
+                //assembleQA1AG1Quality
+            } else if (atg == "atg2"){
+                 assemble.concat('', atg)
+                //assembleQA1AG1Quality
+            }
+            assemble.concat('', buildVariant)
+            
+            console.log(`assemble ---> ${assemble} <---`); 
+            
             console.log(`::::  Informacion::: `);
             console.log(`auth -->  ${auth} <---`);
             console.log(`atg -->  ${atg} <---`);
             console.log(`environment -->  ${environment} <---`);
+            console.log(`buildVariant -->  ${buildVariant} <---`);
         }
     
   return "";
