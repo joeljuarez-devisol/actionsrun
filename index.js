@@ -22,7 +22,7 @@ function validateQA (commitValue) {
             let atg = data[1]
             let environment = data[2]
             let buildVariant = data[3]
-            var assemble = "assemble"
+            const assemble = "assemble"
             
             if (auth == "auth0") {
                     //assembleQA1AG1Quality
