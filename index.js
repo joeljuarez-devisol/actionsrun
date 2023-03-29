@@ -22,27 +22,26 @@ function validateQA (commitValue) {
             let atg = data[1]
             let environment = data[2]
             let buildVariant = data[3]
-            const assemble = "assemble"
+            let assemble = "assemble"
             
             if (auth == "auth0") {
                     //assembleQA1AG1Quality
             }
             if (environment == "QA1") {
-                assemble.concat('', environment)
+                assemble += environment
             } else if (environment == "QA2") {
                  assemble.concat('', environment)
             }
             
             if (atg == "atg1") {
-                assemble.concat('', atg)
-                //assembleQA1AG1Quality
+                assemble += atg
             } else if (atg == "atg2"){
-                 assemble.concat('', atg)
+                 assemble += atg
                 //assembleQA1AG1Quality
             }
-            assemble.concat('', buildVariant)
+            assemble += buildVariant
             
-            console.log(`assemble ---> ${assemble} <---`); 
+            console.log(`assembleValue ---> ${assemble} <---`); 
             
             console.log(`::::  Informacion::: `);
             console.log(`auth -->  ${auth} <---`);
