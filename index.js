@@ -54,12 +54,12 @@ function validateQA (commitValue) {
             finalPath += environment
             finalPath += atg
             finalPath += "/"
-            finalPath += buildVariant
+            finalPath += buildVariant.charAt(0).toLowerCase() + buildVariant.slice(1)
             finalPath += "/"
             finalPath += "app-"
             finalPath += environment + "-"
             finalPath += atg
-            finalPath += buildVariant
+            finalPath += buildVariant.charAt(0).toLowerCase() + buildVariant.slice(1)
             finalPath += ".apk"
             
             console.log(`finalPath ---> ${finalPath} <---`); 
