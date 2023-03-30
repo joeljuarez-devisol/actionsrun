@@ -15,6 +15,11 @@ function validateQA (commitValue) {
         // @QA1 2
         // @Quality 3
         console.log(`commitMessage function -->  ${commitValue} <---`);
+            if (!commitValue.includes("@")) {
+                core.setOutput( "assemble_value",``);
+                core.setOutput( "final_path_apk",``);
+                return
+             }
     
         let data  = commitValue.split('@');
         if (data.length > 0) {
