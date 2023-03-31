@@ -8,12 +8,20 @@ const versionCodeRegexPattern = /(versionCode(?:\s|=)*)(.*)/;
 const versionNameRegexPattern = /(versionName(?:\s|=)*)(.*)/;
 
 function validateQA (commitValue) {
-    //assembleQA1AG1Quality
-        //Creando nombre deasseble y ruta de apk
-        // auth0 0
-        // @atg1 1
-        // @QA1 2
-        // @Quality 3
+     // se debe reciir lo sigueinte : QA1@AG1@AQA1@Quality
+     // salidas:
+     // Assemble: -assembleQA1AG1AQA1Quality
+     // path apk : - QA1AG1ADEB1/quality/app-QA1-AG1-ADEB1-quality.apk
+     // Donde : 
+       // QA1      - 0 Eendpoint
+       // @AG1     - 1 apigee
+       // @AQA1    - 2 Auth0 path
+       // @Quality - 3 Environment
+    
+   // QA1 @ AG1 @ AQA1 @ Quality
+   //Eendpoint @ apigee @ Auth0  @ Environment
+  
+    
         console.log(`commitMessage function -->  ${commitValue} <---`);
             if (!commitValue.includes("@")) {
                 core.setOutput( "assemble_value",``);
@@ -23,48 +31,33 @@ function validateQA (commitValue) {
     
         let data  = commitValue.split('@');
         if (data.length > 0) {
-            let auth = data[0]
-            let atg = data[1]
-            let environment = data[2]
-            let buildVariant = data[3]
+            let endpoint = data[0]
+            let apigee = data[1]
+            let auth = data[2]
+            let environment = data[3]
             let assemble = "assemble"
             
-        
-            if (environment == "QA1") {
-                assemble += environment
-            } else if (environment == "QA2") {
-                 assemble.concat('', environment)
-            }
-            
-            if (atg == "AG1") {
-                assemble += atg
-            } else if (atg == "AG2"){
-                 assemble += atg
-            }
-            
-            assemble += buildVariant
+            assemble += endpoint
+            assemble += apigee
+            assemble += auth
+            assemble += environment
             
             console.log(`assembleValue ---> ${assemble} <---`); 
             
             core.setOutput( "assemble_value",`${assemble}`);
             
-            console.log(`::::  Informacion::: `);
-            console.log(`auth -->  ${auth} <---`);
-            console.log(`atg -->  ${atg} <---`);
-            console.log(`environment -->  ${environment} <---`);
-            console.log(`buildVariant -->  ${buildVariant} <---`);
+           // Creando path QA1 AG1 ADEB1 /quality/app-QA1-AG1-ADEB1-quality.apk
             
-           // Creando path QA1AG1/quality/app-QA1-AG1-quality.apk
             let finalPath = ""
-            finalPath += environment
-            finalPath += atg
+            finalPath += endpoint + "" + apigee + "" + auth
             finalPath += "/"
-            finalPath += buildVariant.charAt(0).toLowerCase() + buildVariant.slice(1)
-            finalPath += "/"
+            finalPath += environment.charAt(0).toLowerCase() + environment.slice(1)
+             finalPath += "/"
             finalPath += "app-"
-            finalPath += environment + "-"
-            finalPath += atg + "-"
-            finalPath += buildVariant.charAt(0).toLowerCase() + buildVariant.slice(1)
+            finalPath += endpoint + "-"
+            finalPath += apigee + "-"
+            finalPath += endpoint + "-"
+            finalPath += environment.charAt(0).toLowerCase() + environment.slice(1)
             finalPath += ".apk"
             
             console.log(`finalPath ---> ${finalPath} <---`); 
