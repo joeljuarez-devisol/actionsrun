@@ -56,7 +56,7 @@ function validateQA (commitValue) {
             finalPath += "app-"
             finalPath += endpoint + "-"
             finalPath += apigee + "-"
-            finalPath += endpoint + "-"
+            finalPath += auth + "-"
             finalPath += environment.charAt(0).toLowerCase() + environment.slice(1)
             finalPath += ".apk"
             
